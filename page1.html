@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <title>Charchit's Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: blue;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 80px;
+      background-color: rgb(5, 5, 70);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li {
+      list-style: none;
+      margin: 0 19px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      margin: 0 9%;
+      color: white;
+    }
+    nav ul li a:hover {
+      color: rgb(184, 184, 241);
+      font-size: 1.03rem;
+    }
+    main {
+      margin-top: 80px; /* Add margin to avoid content being hidden behind fixed navbar */
+    }
+    main hr {
+      border: 0;
+      background-color: rgb(254, 253, 253);
+      height: 1.2px;
+      margin: 40px 84px;
+    }
+    .left {
+      font-size: 2rem;
+      color: white;
+    }
+    .firstsection {
+      display: flex;
+      justify-content: space-around;
+      margin: 23px 0;
+    }
+    .leftsection {
+      font-size: 3rem;
+      margin: 30px 0;
+      margin-left: 40px;
+    }
+    .rightsection img {
+      width: 80%;
+      height: 80%;
+      margin: 50px;
+    }
+    .purple {
+      color: rgb(51, 13, 89);
+    }
+    #element {
+      color: rgb(51, 13, 89);
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background-color: white;
+      color: black;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      width: 300px;
+      text-align: center;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .card h2 {
+      margin-bottom: 10px;
+    }
+    .card p, .card ul {
+      margin-bottom: 10px;
+    }
+    .card ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .card ul li {
+      background-color: rgb(15, 15, 110);
+      color: white;
+      margin: 5px 0;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    .project-btn {
+      background-color: blue;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    .project-btn:hover {
+      background-color: rgb(15, 15, 110);
+      color: white;
+    }
+    footer {
+      background-color: rgb(5, 5, 70);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="left">Charchit's Portfolio</div>
+      <div class="right">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section id="home" class="firstsection">
+      <div class="leftsection">
+        Hi, My name is <span class="purple">Charchit</span>
+        <div>I am a <span id="element"></span></div>
+      </div>
+      <div class="rightsection">
+        <img src="PngItem_1127587.png" alt="Profile Picture">
+      </div>
+    </section>
+    <hr>
+    <div id="about" class="card-container"></div>
+    <hr>
+    <div id="skills" class="card-container"></div>
+    <hr>
+    <div id="projects" class="card-container"></div>
+  </main>
+  <footer id="contact">
+    <h2>Contact Me</h2>
+    <p>If you'd like to get in touch, feel free to email me at <a href="mailto:charchitchouhan789@gmail.com">charchitchouhan789@gmail.com</a>.</p>
+  </footer>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    var typed = new Typed('#element', {
+      strings: ['web developer'],
+      typeSpeed: 50,
+    });
+
+    function createCard(section, title, content) {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <h2>${title}</h2>
+        <div>${content}</div>
+      `;
+      document.getElementById(section).appendChild(card);
+    }
+
+    createCard('about', 'About Me', `
+      <p>Hello! I'm Charchit, a web developer with a passion for creating stunning and functional websites. I love exploring new technologies and constantly improving my skills. When I'm not coding, you can find me singing, drawing, or reading books.</p>
+    `);
+
+    createCard('skills', 'Skills', `
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>React</li>
+        <li>Node.js</li>
+        <li>MongoDB</li>
+        <li>Git</li>
+      </ul>
+    `);
+
+    createCard('projects', 'Projects', `
+      <button class="project-btn" onclick="viewProjects()">Click here to view projects</button>
+    `);
+
+    function viewProjects() {
+      window.location.href = 'projects.html'; // Change this URL to your projects page
+    }
+  </script>
+</body>
+</html>
